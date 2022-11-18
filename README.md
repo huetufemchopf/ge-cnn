@@ -7,25 +7,6 @@ The MNIST dataset is used, which is automatically downloaded. The images of the 
 
 You can run the following command to install all the packages listed in the requirements.txt:
 
-    pip3 install -r requirements.txt
-
-Python 3.6.13
-
-## Run
-
-Run the#�� Semantic Segmentation
-
-<img src="seg.png" alt="hi" class="inline"/>
-
-This is an implementation of the MNIST experiment from the paper "Group Equivariant Convolutional Networks" by Taco S. Cohen, Max Welling. The p4 group convolutional layers are implemented for the p4cnn (as described in the paper) as well as the baseline model z2cnn. 
-
-### Dataset
-The MNIST dataset is used, which is automatically downloaded. The images of the dataset are randomly rotated. 
-
-### Packages
-
-You can run the following command to install all the packages listed in the requirements.txt:
-
 `pip3 install -r requirements.txt`
 
 ## Run
