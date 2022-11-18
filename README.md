@@ -17,7 +17,7 @@ In order to evaluate the model, run
 
 `python train_mnist.py --model [MODEL_NAME]`
 
-where `[MODEL_NAME]` in [z2cnn, p4cnn] .
+where `[MODEL_NAME]` in ["z2cnn", "p4cnn"] .
 
 If we rotate the MNIST pictures of the validation set,but train on a non-rotated training set, the p4cnn outperforms z2cnn, through the inductive bias of the network
 
