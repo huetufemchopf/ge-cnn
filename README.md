@@ -26,7 +26,7 @@ The MNIST dataset is used, which is automatically downloaded. The images of the 
 
 You can run the following command to install all the packages listed in the requirements.txt:
 
-    pip3 install -r requirements.txt
+`pip3 install -r requirements.txt`
 
 ## Run
 
