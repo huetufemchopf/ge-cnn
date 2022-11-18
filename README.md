@@ -21,10 +21,8 @@ In order to evaluate the model, run
 
 where `[MODEL_NAME]` in [z2cnn, p4cnn] .
 
-Achieved validation accuracy at set parameters: 
-- z2cnn: 92.8 % (comparison paper: 100 - (0.1038 ± 0.27) %)
-- p4cnn: (comparison paper: )
+Achieved validation accuracy trained at set parameters: 
+
 
 Fun fact: If we do not rotate the MNIST pictures of the training set, but keep the rotations on the test set, 
 the z2cnn achieves an accuracy of 42%, whereas the p4cnn, through the inductive bias of the network, achieves still 83%.
-

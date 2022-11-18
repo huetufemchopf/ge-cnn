@@ -37,8 +37,7 @@ class ClassifierModule(pl.LightningModule):
 
     def train_dataloader(self):
         # loads MNIST training set
-        train_transform = torchvision.transforms.Compose([torchvision.transforms.RandomRotation([0, 360]),
-                                                          torchvision.transforms.ToTensor(),
+        train_transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor(),
                                                           torchvision.transforms.Normalize(
                                                               (0.1307,), (0.3081,))
                                                           ])
