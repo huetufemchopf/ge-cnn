@@ -9,6 +9,8 @@ You can run the following command to install all the packages listed in the requ
 
     pip3 install -r requirements.txt
 
+Python 3.6.13
+
 ## Run
 
 Run the following command 

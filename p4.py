@@ -8,7 +8,7 @@ class gconv_z2p4(pl.LightningModule):
     group convolutionfrom z2 to p4:
     input tensor shape: [batch size, img channels, img_x, img_y] 
     weight tensor shape: [batch size, img channels, img_x, img_y]
-    output shape: 
+    output shape: [batch size, out channels, angle, x, y])
 
     """
 
@@ -41,7 +41,8 @@ class gconv_p4p4(pl.LightningModule):
     group convolutionfrom p4 to p4:
     input tensor shape: [batch size, img channels, img_x, img_y] 
     weight tensor shape: [batch size, img channels, img_x, img_y]  
-    output shape: 
+    output shape: [batch size, out channels, angles, x, y])
+
     """
 
     def __init__(self, in_channels, out_channels, kernel_size):
@@ -58,7 +59,6 @@ class gconv_p4p4(pl.LightningModule):
         x = x.reshape(x.size(0), -1, x.size(3), x.size(4))  # bs, 40, 3,3
         w = self.w  # [10, 10, 4, 3, 3]
         ws = w.size()
-        # TODO: torch.rot90(weight, ang, (3, 4))
 
         # rotates the weight 0, 90, 180 and 270 degrees
         # roll: loop through angle layers, such that all layers 
