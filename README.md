@@ -1,7 +1,3 @@
-#�� Semantic Segmentation
-
-<img src="seg.png" alt="hi" class="inline"/>
-
 This is an implementation of the MNIST experiment from the paper "Group Equivariant Convolutional Networks" by Taco S. Cohen, Max Welling. The p4 group convolutional layers are implemented for the p4cnn (as described in the paper) as well as the baseline model z2cnn. 
 
 ### Dataset
