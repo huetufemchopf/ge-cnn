@@ -11,7 +11,8 @@ import parser
 class ClassifierModule(pl.LightningModule):
 
     """
-    Lighning module responsible for data loading, training and validation of the models. 
+    Lighning module responsible for data loading,
+    training and validation of the models. 
     """
 
     def __init__(self, model, args):

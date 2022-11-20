@@ -3,8 +3,11 @@ import pytorch_lightning as pl
 
 
 class z2cnn(pl.LightningModule):
-    """ Implementation of the z2cnn baseline model as described in the paper. TODO: check layer norm vs batchnorm performance
+    """ Implementation of the z2cnn baseline model 
+    as described in the paper. TODO: check layer 
+    norm vs batchnorm performance
     """
+
     def __init__(self):
         super().__init__()
 
@@ -23,15 +26,16 @@ class z2cnn(pl.LightningModule):
         x = torch.nn.functional.layer_norm(self.l1(x), self.l1(x).shape[-3:])
         x = torch.nn.functional.relu(x)
 
-        x = torch.nn.functional.layer_norm(self.l2to6(x), self.l2to6(x).shape[-3:])
+        x = torch.nn.functional.layer_norm(
+            self.l2to6(x), self.l2to6(x).shape[-3:])
         x = torch.nn.functional.relu(x)
         x = self.pool(x)
 
         for i in range(4):
 
-            x = torch.nn.functional.relu(torch.nn.functional.layer_norm(self.l2to6(x), self.l2to6(x).shape[-3:]))
+            x = torch.nn.functional.relu(torch.nn.functional.layer_norm(
+                self.l2to6(x), self.l2to6(x).shape[-3:]))
             x = torch.nn.functional.relu(x)
-
 
         x = self.l7(x)
         x = torch.nn.functional.adaptive_avg_pool2d(x, 1).squeeze()

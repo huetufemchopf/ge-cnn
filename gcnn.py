@@ -4,8 +4,10 @@ from p4 import gconv_p4p4, gconv_z2p4, BatchNorm4d
 
 
 class p4cnn(pl.LightningModule):
-    """Layers: 7 layers with g-convolutions and 10 channels each.
+    """This is the p4cnn network, consisting of 7 layers 
+    with g-convolutions and 10 channels each.
     """
+
     def __init__(self):
         super(p4cnn, self).__init__()
 
@@ -16,11 +18,10 @@ class p4cnn(pl.LightningModule):
         self.norm2d = torch.nn.BatchNorm2d(10)
         self.norm3d = torch.nn.BatchNorm3d(10)
 
-
     def forward(self, x):
-        
-        x = torch.nn.functional.relu(torch.nn.functional.layer_norm(
-            self.conv1(x), self.conv1(x).shape[-4:])) #everything but batch
+
+        x = torch.nn.functional.relu(torch.nn.functionßal.layer_norm(
+            self.conv1(x), self.conv1(x).shape[-4:]))  # everything but batch
         x = torch.nn.functional.relu(torch.nn.functional.layer_norm(
             self.conv2to6(x), self.conv2to6(x).shape[-4:]))
         x = torch.nn.functional.relu(torch.nn.functional.layer_norm(
@@ -32,7 +33,9 @@ class p4cnn(pl.LightningModule):
         x = torch.nn.functional.relu(torch.nn.functional.layer_norm(
             self.conv2to6(x), self.conv2to6(x).shape[-4:]))
         x = self.conv7(x)
-        x = torch.amax(x,2) #maxvalue over rotations [bs, channels, rot, x, y] -->[bs, channels, x, y]
-        x = torch.nn.functional.adaptive_avg_pool2d(x, 1).squeeze() #to [bs, channels]
+        # maxvalue over rotations [bs, channels, rot, x, y] -->[bs, channels, x, y]
+        x = torch.amax(x, 2)
+        x = torch.nn.functional.adaptive_avg_pool2d(
+            x, 1).squeeze()  # to [bs, channels]
         output = torch.nn.functional.softmax(x, dim=1)
         return output
